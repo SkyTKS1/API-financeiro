@@ -2,7 +2,7 @@ const db = require('../database/db');
 
 async function criarUsuario(req, res) {
     const {nome, email} = req.body;
-    const resultado = await db.query('INSERT INTO usuarioS (nome, email) values ($1, $2) RETURNING *', [nome, email]);
+    const resultado = await db.query('INSERT INTO usuarios (nome, email) values ($1, $2) RETURNING *', [nome, email]);
 
     res.status(201).json({mensagem: "Cadastro realizado com sucesso"})
 }
